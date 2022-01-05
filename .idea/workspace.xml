@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce5750a6-56d8-43d1-8f1e-531e488a5363" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/My posts/MyPosts.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/My posts/MyPosts.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/My posts/Post/Post.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/My posts/Post/Post.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tehnologies.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,17 +49,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile/My posts/Post" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="advanced.settings" />
     <property name="ts.external.directory.path" value="D:\WebStorm_Project\way-of-the-samurai\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WebStorm_Project\way-of-the-samurai\src\components\Profile\My posts\Post" />
+      <recent name="D:\WebStorm_Project\way-of-the-samurai\src\components\Profile\My posts" />
       <recent name="D:\WebStorm_Project\way-of-the-samurai\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebStorm_Project\way-of-the-samurai\src" />
       <recent name="D:\WebStorm_Project\way-of-the-samurai\src\components" />
+      <recent name="D:\WebStorm_Project\way-of-the-samurai\src\Profile" />
+      <recent name="D:\WebStorm_Project\way-of-the-samurai\src\Navbar" />
+      <recent name="D:\WebStorm_Project\way-of-the-samurai\src\Header" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -62,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641298284862</updated>
       <workItem from="1641298286968" duration="2000" />
-      <workItem from="1641298299521" duration="9118000" />
+      <workItem from="1641298299521" duration="22039000" />
     </task>
     <servers />
   </component>
