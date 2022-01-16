@@ -1,0 +1,9 @@
+.profileDescr {
+    padding-left:10px;
+}
+
+.profileImage img   {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+}

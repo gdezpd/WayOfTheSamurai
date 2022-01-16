@@ -2,6 +2,8 @@
     grid-area: c;
     background-color: cornflowerblue;
     display: flex;
-    flex-wrap: wrap;
+}
+.dialogItem{
+    width: 200px;
 }
 
