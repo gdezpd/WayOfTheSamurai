@@ -1,5 +1,5 @@
 import React from "react";
-import classes from './Post.module.css'
+import s from './Post.module.css'
 
 type propsType = {
     message:string
@@ -9,16 +9,18 @@ type propsType = {
 export const Post = (props:propsType) => {
 
     return (
-        <div className={classes.post}>
-            <div className={classes.avatar}>
-                <img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"
-                     alt=""/>
+        <div className={s.wrapper}>
+            <div className={s.post}>
+                <div className={s.avatar}>
+                    <img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"
+                    />
+                </div>
+                <div className={s.item}>
+                    {props.message}
+                </div>
             </div>
-            <div className={classes.item}>
-                {props.message}
-            </div>
-            <div className={classes.likes}>
-                <span>Likes {props.likeCount}</span>
+            <div className={s.likes}>
+                Likes {props.likeCount}
             </div>
         </div>
     )

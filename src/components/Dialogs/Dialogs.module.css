@@ -1,5 +1,5 @@
 .dialog {
-    grid-area: c;
+    margin-left: 10px;
     background-color: cornflowerblue;
     display: flex;
 }

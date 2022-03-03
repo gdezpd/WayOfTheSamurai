@@ -8,7 +8,31 @@
     text-decoration: none;
 }
 
-.active  {
+.active {
     color: gold;
     text-decoration: none;
+}
+
+.friends {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.container {
+    display: flex;
+    width: 200px;
+}
+
+.wrapperFriends {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+}
+
+.wrapperFriends .ava {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: gold;
+    margin: 0 auto;
 }

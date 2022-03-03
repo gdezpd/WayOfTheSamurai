@@ -1,26 +1,40 @@
-import React from "react";
+import React, {useRef} from "react";
 import s from './MyPosts.module.css'
+import {PostsArrayType} from "../../../redux/state";
 import {Post} from "./Post/Post";
 
-export const MyPosts = () => {
+type PostArrayPropsType = {
+    postsArray: Array<PostsArrayType>
+    newPostText:string
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
+}
 
-    const PostArray=[
-        {message: 'Hi, how are you?', likeCount:20},
-        {message: 'It`s my first post', likeCount:5}
-    ]
+export const MyPosts = (props: PostArrayPropsType) => {
 
+    let postElements = props.postsArray.map(el => <Post message={el.message} likeCount={el.likeCount}/>)
+    let addPostHandler = () => {
+        props.addPost()
+    }
+    const newPostElement = useRef<any>(null)
+
+    const onChangeHandler =( )=>{
+        const textInput = newPostElement.current.value
+        props.updateNewPostText(textInput)
+    }
     return (
         <div className={s.posts}>
             <h3>My posts</h3>
             <div>
-                <textarea> </textarea>
+                <textarea ref={newPostElement} value={props.newPostText} onChange={onChangeHandler}/>
             </div>
             <div>
-                <button>Add</button>
+                <button onClick={addPostHandler}>Add</button>
             </div>
             <div className={s.post}>
-                <Post message={PostArray[0].message} likeCount={PostArray[0].likeCount}/>
-                <Post message={PostArray[1].message} likeCount={PostArray[1].likeCount}/>
+                {postElements}
+                {/*<Post message={postsArray.message} likeCount={postsArray.likeCount}/>*/}
+                {/*<Post message={postsArray.message} likeCount={postsArray.likeCount}/>*/}
             </div>
         </div>
     )

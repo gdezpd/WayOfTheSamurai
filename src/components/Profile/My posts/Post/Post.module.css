@@ -1,8 +1,35 @@
-.post .item {
-    color: greenyellow;
+.wrapper {
+    width: 250px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: gold;
+    /*display: flex;*/
+    /*align-items: c
+    .wrapper .post {
+    enter;*/
+    /*margin: 0 auto;*/
+    position: relative;
+}
+.wrapper .post {
+display: flex;
 }
 
-.post .avatar img {
+.wrapper .post .item {
+    color: greenyellow;
+    margin-left: 10px;
+    width: 200px;
+    background-color: darkolivegreen;
+}
+
+.wrapper .post .avatar img {
     width: 40px;
     border-radius: 100%;
 }
+
+.wrapper .likes {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 20px;
+}
+
