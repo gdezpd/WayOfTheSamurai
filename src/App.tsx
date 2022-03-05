@@ -8,42 +8,31 @@ import {Route, Routes} from 'react-router-dom';
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import { ItemArrayType, MessageArrayType, PostsArrayType} from "./redux/state";
+import {StoreType} from "./redux/state";
 
-type appPropsType = {
-    state: {
-        profilePage: {
-            postsArray: Array<PostsArrayType>
-            newPostText:string
-        }
-        dialogsPage: {
-            itemArray: Array<ItemArrayType>
-            messageArray: Array<MessageArrayType>
-        }
-        sidebar:{}
-    }
-    addPost:()=>void
-    updateNewPostText:(newText:string)=>void
+type AppPropsType = {
+    store: StoreType
 }
 
-export const App = (props: appPropsType) => {
+export const App = (props: AppPropsType) => {
+    // const state = store.getState()
     return (
-            <div className='app-wrapper'>
-                <Header/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Routes>
-                        <Route path="/dialogs" element={<Dialogs itemArray={props.state.dialogsPage.itemArray}
-                                                                 messageArray={props.state.dialogsPage.messageArray}/>}/>
-                        <Route path="/profile" element={<Profile postsArray={props.state.profilePage.postsArray}
-                                                                 newPostText={props.state.profilePage.newPostText}
-                                                                 addPost={props.addPost}
-                                                                 updateNewPostText={props.updateNewPostText} />}/>
-                        <Route path="/news" element={<News/>}/>
-                        <Route path="/music" element={<Music/>}/>
-                        <Route path="/settings" element={<Settings/>}/>
-                    </Routes>
-                </div>
+        <div className='app-wrapper'>
+            <Header/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                <Routes>
+                    <Route path="/dialogs" element={<Dialogs itemArray={props.store._state.dialogsPage.itemArray}
+                                                             messageArray={props.store._state.dialogsPage.messageArray}/>}/>
+                    <Route path="/profile" element={<Profile postsArray={props.store._state.profilePage.postsArray}
+                                                             newPostText={props.store._state.profilePage.newPostText}
+                                                             dispatch ={props.store.dispatch.bind(props.store)}
+                                                             />}/>
+                    <Route path="/news" element={<News/>}/>
+                    <Route path="/music" element={<Music/>}/>
+                    <Route path="/settings" element={<Settings/>}/>
+                </Routes>
             </div>
+        </div>
     )
 }

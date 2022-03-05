@@ -2,21 +2,21 @@ import React from "react";
 import s from './Profile.module.css'
 import {MyPosts} from "./My posts/MyPosts";
 import {ProfileItem} from "../ProfileItem/ProfileItem";
-import {PostsArrayType} from "../../redux/state";
+import {ActionsTypes, PostsArrayType} from "../../redux/state";
 
 
 type ProfilePropsType = {
     postsArray: Array<PostsArrayType>
     newPostText:string
-    addPost:()=>void
-    updateNewPostText:(newText:string)=>void
+    dispatch: (action: ActionsTypes)=>void
 }
 
 export const Profile = (props: ProfilePropsType) => {
     return (
         <div className={s.profile}>
             <ProfileItem/>
-            <MyPosts postsArray={props.postsArray} newPostText={props.newPostText} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
+            <MyPosts postsArray={props.postsArray}
+                     newPostText={props.newPostText} />
         </div>
     )
 }

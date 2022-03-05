@@ -1,26 +1,27 @@
 import React, {useRef} from "react";
 import s from './MyPosts.module.css'
-import {PostsArrayType} from "../../../redux/state";
+import {addPostAC, PostsArrayType, updateNewPostTextAC} from "../../../redux/state";
 import {Post} from "./Post/Post";
 
 type PostArrayPropsType = {
     postsArray: Array<PostsArrayType>
     newPostText:string
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
 }
 
 export const MyPosts = (props: PostArrayPropsType) => {
 
     let postElements = props.postsArray.map(el => <Post message={el.message} likeCount={el.likeCount}/>)
     let addPostHandler = () => {
-        props.addPost()
+        // props.addPost()
+        addPostAC(props.newPostText)
     }
+
     const newPostElement = useRef<any>(null)
 
     const onChangeHandler =( )=>{
         const textInput = newPostElement.current.value
-        props.updateNewPostText(textInput)
+        // props.updateNewPostText(textInput)
+        updateNewPostTextAC(textInput)
     }
     return (
         <div className={s.posts}>
