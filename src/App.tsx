@@ -23,11 +23,10 @@ export const App = (props: AppPropsType) => {
             <div className='app-wrapper-content'>
                 <Routes>
                     <Route path="/dialogs" element={<Dialogs itemArray={props.store._state.dialogsPage.itemArray}
-                                                             messageArray={props.store._state.dialogsPage.messageArray}/>}/>
-                    <Route path="/profile" element={<Profile postsArray={props.store._state.profilePage.postsArray}
-                                                             newPostText={props.store._state.profilePage.newPostText}
-                                                             dispatch ={props.store.dispatch.bind(props.store)}
-                                                             />}/>
+                                                             messageArray={props.store._state.dialogsPage.messageArray}
+                                                             newMessage={props.store._state.dialogsPage.newMessage}
+                                                             dispatch ={props.store.dispatch.bind(props.store)}/>}/>
+                    <Route path="/profile" element={<Profile store={props.store}/>}/>
                     <Route path="/news" element={<News/>}/>
                     <Route path="/music" element={<Music/>}/>
                     <Route path="/settings" element={<Settings/>}/>
