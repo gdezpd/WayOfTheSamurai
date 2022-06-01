@@ -3,25 +3,43 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import {App} from './App';
 import reportWebVitals from './reportWebVitals';
-// import {RootStateType} from './redux/state'
 import {BrowserRouter} from "react-router-dom";
-import {store} from './redux/state';
+import {store} from './redux/redux-store';
+import {Provider} from 'react-redux';
+import {RootStateType, StoreType} from './redux/store';
+// import {RootStateType} from './redux/store';
 
-const renderReactElement = () => {
+// ReactDOM.render(
+//     <React.StrictMode>
+//         <BrowserRouter>
+//             <Provider store={store}>
+//                 <App />
+//             </Provider>
+//         </BrowserRouter>
+//     </React.StrictMode>,
+//     document.getElementById('root')
+// );
+
+export let renderReactElement = (state: RootStateType) => {
     ReactDOM.render(
         <React.StrictMode>
-            <BrowserRouter>
-                <App
-                    store={store}
-                />
+            <BrowserRouter >
+                <Provider store={store}>
+                    <App/>
+                </Provider>
+
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
+renderReactElement(store.getState());
 
-store.subscribe(renderReactElement);
-store._callSubckriber()
+store.subscribe(() => {
+    let state = store.getState();
+    renderReactElement(state);
+})
+// store._callSubscriber()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

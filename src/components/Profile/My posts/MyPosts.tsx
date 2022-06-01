@@ -1,19 +1,17 @@
 import React, {useRef} from "react";
 import s from './MyPosts.module.css'
-import {addPostAC, PostsArrayType, StoreType, updateNewPostTextAC} from "../../../redux/state";
+import { StoreType } from "../../../redux/store";
+import {addPostAC, updateNewPostTextAC} from "../../../redux/ActionCreator";
 import {Post} from "./Post/Post";
 
 type PostArrayPropsType = {
     store: StoreType
-    // postsArray: Array<PostsArrayType>
-    // newPostText: string
 }
 
 export const MyPosts = (props: PostArrayPropsType) => {
 
     let postElements = props.store._state.profilePage.postsArray.map(el => <Post message={el.message} likeCount={el.likeCount}/>)
     let addPostHandler = () => {
-        // props.addPost()
         props.store.dispatch(addPostAC(props.store._state.profilePage.newPostText))
     }
 

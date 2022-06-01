@@ -9,26 +9,24 @@ import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
 import {StoreType} from "./redux/store";
-import {store} from './redux/store';
 
-// type AppPropsType = {
-//     state: StoreType
-// }
+type AppPropsType = {
+    store: StoreType
+}
 
-export const App = () => {
+export const AppWithRedux = (props: AppPropsType) => {
     // const state = store.getState()
-    // console.log(state)
     return (
         <div className='app-wrapper'>
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Routes>
-                    <Route path="/" element={<Profile store={store}/>}/>
-                    <Route path="/dialogs" element={<Dialogs itemArray={store._state.dialogsPage.itemArray}
-                                                             messageArray={store._state.dialogsPage.messageArray}
-                                                             newMessage={store._state.dialogsPage.newMessage}
-                                                             dispatch={store.dispatch.bind(store)}/>}/>
+                    <Route path="/dialogs" element={<Dialogs itemArray={props.store._state.dialogsPage.itemArray}
+                                                             messageArray={props.store._state.dialogsPage.messageArray}
+                                                             newMessage={props.store._state.dialogsPage.newMessage}
+                                                             dispatch ={props.store.dispatch.bind(props.store)}/>}/>
+                    <Route path="/profile" element={<Profile store={props.store}/>}/>
                     <Route path="/news" element={<News/>}/>
                     <Route path="/music" element={<Music/>}/>
                     <Route path="/settings" element={<Settings/>}/>

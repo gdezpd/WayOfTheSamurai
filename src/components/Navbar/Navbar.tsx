@@ -1,5 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import { AllFriends } from "./AllFriends";
 import s from './Navbar.module.css';
 
 type isActiveType = {
@@ -9,19 +10,11 @@ type isActiveType = {
 export const Navbar = () => {
 
     const activeLink = ({isActive}: isActiveType) => isActive ? s.active : s.item;
-    const AllFriends = () => {
-        return (
-            <div className={s.wrapperFriends}>
-                <div className={s.ava}></div>
-                <div className={s.descr}>name 1</div>
-            </div>
-        )
-    }
 
     return (
         <nav className={s.nav}>
             <div>
-                <NavLink to='/profile' className={activeLink}> Profile</NavLink>
+                <NavLink to='/' className={activeLink}> Profile</NavLink>
             </div>
             <div>
                 <NavLink to='/dialogs' className={activeLink}> Dialogs</NavLink>
@@ -38,9 +31,15 @@ export const Navbar = () => {
             <div className={s.friends}>
                 <h3>Friends</h3>
                 <div className={s.container}>
-                    <AllFriends/>
-                    <AllFriends/>
-                    <AllFriends/>
+                    <AllFriends
+                        name={'Joe'}
+                    />
+                    <AllFriends
+                        name={'Piter'}
+                    />
+                    <AllFriends
+                        name={'Helena'}
+                    />
                 </div>
             </div>
         </nav>

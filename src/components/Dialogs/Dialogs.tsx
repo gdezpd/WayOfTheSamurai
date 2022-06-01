@@ -1,13 +1,11 @@
-import React, {useRef} from "react";
+import React, {ChangeEvent, useRef} from "react";
 import s from './Dialogs.module.css'
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {
-    ActionsTypes, addMessageAC,
-    ItemArrayType,
-    MessageArrayType,
-    updateNewMessageTextAC,
-} from "../../redux/state";
+import {ItemArrayType, MessageArrayType} from "../../redux/store";
+import {ActionsTypes, addMessageAC, updateNewMessageTextAC,} from "../../redux/ActionCreator";
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../../redux/redux-store";
 
 
 type propsType = {
@@ -18,17 +16,21 @@ type propsType = {
 }
 
 export const Dialogs = (props: propsType) => {
+    const inputNewText = useSelector<AppRootStateType, string>(state => state.dialogsPage.newMessage)
+    const arrayMessages = useSelector<AppRootStateType, MessageArrayType[]>(state => state.dialogsPage.messageArray)
 
-    let dialogsElement = props.itemArray.map(d => <DialogItem name={d.name} id={d.id}/>)
-    let messageElement = props.messageArray.map(m => <Message message={m.message}/>)
+    let dialogsElement = props.itemArray.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
+    let messageElement = props.messageArray.map(m => <Message key={m.id} message={m.message}/>)
+
     const sendMessageButtonHandler = () => {
         props.dispatch(addMessageAC(props.newMessage))
+        console.log(arrayMessages)
     }
-    const newMessage = useRef<any>(null)
-    const onChangeInputMessageHandler = () => {
-        const newMessageText = newMessage.current.value
-            props.dispatch(updateNewMessageTextAC(newMessageText))
+    const onChangeInputMessageHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        props.dispatch(updateNewMessageTextAC(e.currentTarget.value))
+        console.log(e.currentTarget.value)
     }
+
 
     return (
         <div className={s.dialog}>
@@ -39,8 +41,10 @@ export const Dialogs = (props: propsType) => {
                 <div>{messageElement}</div>
                 <div>
                     <div>
-                        <textarea ref={newMessage} value={props.newMessage} onChange={onChangeInputMessageHandler}
-                        placeholder={'Enter you message'}/>
+                        <input
+                            value={inputNewText}
+                            onChange={onChangeInputMessageHandler}
+                            placeholder={'Enter you message'}/>
                     </div>
                     <div>
                         <button onClick={sendMessageButtonHandler}>Send</button>
